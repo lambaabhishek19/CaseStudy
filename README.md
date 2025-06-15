@@ -11,14 +11,12 @@ This project provides an automated test suite for validating the `SetupCmd.exe` 
 - A compiled version of `SetupCmd.exe` located in: Fixtures folder
 
 ## 📂 Project Structure
-
-/SetupCmd.Tests
-│
-├── Fixtures/   # Keep all test data releated files here
-│ └── DbConnections.json # Test input data for database connections
-  └── SetupCmd.exe # Test execution file
-│
-├── Tests/      # Keep all test and test execution releated files here   
+├── Fixtures/ # Keep all test data related files here
+│ ├── DbConnections.json # Test input data for database connections
+│ └── SetupCmd.exe # Test execution file
+├── Tests/ # All test execution related files
+│ └── SetupCmdTest.cs
+├── SetupCmdRunner.cs # Helper class to invoke SetupCmd.exe
 
 ## 🚀 Running the Tests
 
