@@ -1,0 +1,126 @@
+[
+  {
+    "Comment": "Valid MSSQL Connection",
+    "DatabaseType": "MSSQL",
+    "Server": "localhost",
+    "Port": "1433",
+    "User": "sa",
+    "Password": "Password123!",
+    "ExpectedOutput": "connection successful",
+    "ConnectionStatus": "Success"
+  },
+  {
+    "Comment": "Valid MYSQL Connection",
+    "DatabaseType": "MYSQL",
+    "Server": "localhost",
+    "Port": "3306",
+    "User": "root",
+    "Password": "password123",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "connection successful",
+    "ConnectionStatus": "Success"
+  },
+  {
+    "Comment": "Valid ORACLE Connection",
+    "DatabaseType": "ORACLE",
+    "Server": "localhost",
+    "Port": "1521",
+    "User": "system",
+    "Password": "oracle123",
+    "DatabaseName": "ORCL",
+    "ExpectedOutput": "connection successful",
+    "ConnectionStatus": "Success"
+  },
+  {
+    "Comment": "Unsupported Database Connection",
+    "DatabaseType": "PostgreSQL",
+    "Server": "localhost",
+    "Port": "1521",
+    "User": "system",
+    "Password": "PostgreSQL",
+    "DatabaseName": "PostgreSQL",
+    "ExpectedOutput": "Unsupported Database Type",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "InValid MYSQL credentials",
+    "DatabaseType": "MYSQL",
+    "Server": "localhost",
+    "Port": "3306",
+    "User": "root",
+    "Password": "password",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Access denied for user",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Invalid Port number for MYSQL",
+    "DatabaseType": "MYSQL",
+    "Server": "localhost",
+    "Port": "3305",
+    "User": "root",
+    "Password": "password123",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Unable to connect to any of the specified MySQL hosts",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Missing mendatory param host info for database connection",
+    "DatabaseType": "MYSQL",
+    "Port": "3306",
+    "User": "root",
+    "Password": "password123",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Missing required argument: --databaseServer",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Missing mendatory param Port number for database connection",
+    "DatabaseType": "MYSQL",
+    "Server": "localhost",
+    "User": "root",
+    "Password": "password123",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Missing required argument: --databasePort",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Missing mendatory param password for database connection",
+    "Server": "localhost",
+    "Port": "3306",
+    "User": "root",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Missing required argument: --databasePassword",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Missing mendatory param username for database connection",
+    "DatabaseType": "MYSQL",
+    "Server": "localhost",
+    "Port": "3305",
+    "Password": "password123",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Missing required argument: --databaseUser",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Missing mendatory param databaseType for database connection",
+    "Server": "localhost",
+    "Port": "3306",
+    "User": "root",
+    "Password": "password123",
+    "DatabaseName": "MysqlDB",
+    "ExpectedOutput": "Missing required argument: --databaseType",
+    "ConnectionStatus": "Fail"
+  },
+  {
+    "Comment": "Missing optional param database name for database connection",
+    "DatabaseType": "MYSQL",
+    "Server": "localhost",
+    "Port": "3305",
+    "User": "root",
+    "Password": "password123",
+    "ExpectedOutput": "connection successful",
+    "ConnectionStatus": "Success"
+  }
+]
