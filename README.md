@@ -8,7 +8,7 @@ This project provides an automated test suite for validating the `SetupCmd.exe` 
 
 - .NET 8 SDK
 - xUnit test runner (built-in with `dotnet test`)
-- A compiled version of `SetupCmd.exe` located in: Fixtures folder
+- A compiled version of `SetupCmd.exe` must be located in: Fixtures folder
 
 ## 📂 Project Structure
 ├── Fixtures/ # Keep all test data related files here
@@ -16,7 +16,7 @@ This project provides an automated test suite for validating the `SetupCmd.exe` 
 │ └── SetupCmd.exe # Test execution file
 ├── Tests/ # All test execution related files
 │ └── SetupCmdTest.cs
-├── SetupCmdRunner.cs # Helper class to invoke SetupCmd.exe
+  └── SetupCmdRunner.cs # Helper class to invoke SetupCmd.exe
 
 ## 🚀 Running the Tests
 
