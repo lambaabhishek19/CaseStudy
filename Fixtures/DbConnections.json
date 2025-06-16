@@ -39,7 +39,7 @@
     "User": "system",
     "Password": "PostgreSQL",
     "DatabaseName": "PostgreSQL",
-    "ExpectedOutput": "Unsupported Database Type",
+    "ExpectedOutput": "Unsupported database type",
     "ConnectionStatus": "Fail"
   },
   {
@@ -87,6 +87,7 @@
   {
     "Comment": "Missing mendatory param password for database connection",
     "Server": "localhost",
+    "DatabaseType": "MYSQL",
     "Port": "3306",
     "User": "root",
     "DatabaseName": "MysqlDB",
@@ -97,7 +98,7 @@
     "Comment": "Missing mendatory param username for database connection",
     "DatabaseType": "MYSQL",
     "Server": "localhost",
-    "Port": "3305",
+    "Port": "3306",
     "Password": "password123",
     "DatabaseName": "MysqlDB",
     "ExpectedOutput": "Missing required argument: --databaseUser",
@@ -117,7 +118,7 @@
     "Comment": "Missing optional param database name for database connection",
     "DatabaseType": "MYSQL",
     "Server": "localhost",
-    "Port": "3305",
+    "Port": "3306",
     "User": "root",
     "Password": "password123",
     "ExpectedOutput": "connection successful",
