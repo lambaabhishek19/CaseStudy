@@ -1,5 +1,5 @@
 using System.Diagnostics;
-
+using System.Text;
 public class SetupCmdRunner
 {
     private readonly string _exePath;
@@ -13,18 +13,22 @@ public class SetupCmdRunner
 
     public (int ExitCode, string Output) RunConfigureDatabaseCommand(DbConnections testCase)
     {
-        string args = $"configureDatabaseConnection " +
-                      $"--databaseType={testCase.DatabaseType} " +
-                      $"--databaseServer={testCase.Server} " +
-                      $"--databasePort={testCase.Port} " +
-                      $"--databaseUser={testCase.User} " +
-                      $"--databasePassword={testCase.Password}";
+        var sb = new StringBuilder("configureDatabaseConnection");
 
-        if (!string.IsNullOrWhiteSpace(testCase.DatabaseName))
+        void AddArg(string name, string value)
         {
-            args += $" --databaseName={testCase.DatabaseName}";
+            if (!string.IsNullOrWhiteSpace(value))
+                sb.Append($" --{name}={value}");
         }
-        return RunProcess(args);
+
+        AddArg("databaseType", testCase.DatabaseType);
+        AddArg("databaseServer", testCase.Server);
+        AddArg("databasePort", testCase.Port);
+        AddArg("databaseUser", testCase.User);
+        AddArg("databasePassword", testCase.Password);
+        AddArg("databaseName", testCase.DatabaseName);
+
+        return RunProcess(sb.ToString());
     }
 
     public (int ExitCode, string Output) RunHelpCommand()
@@ -57,11 +61,9 @@ public class SetupCmdRunner
                 CreateNoWindow = true
             }
         };
-
         process.Start();
         string output = process.StandardOutput.ReadToEnd() + process.StandardError.ReadToEnd();
         process.WaitForExit();
-
         return (process.ExitCode, output);
     }
 }
